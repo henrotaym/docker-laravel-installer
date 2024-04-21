@@ -1,0 +1,12 @@
+{
+    "name": "@henrotaym/laravel-installer",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "publish": "changeset publish"
+    },
+    "devDependencies": {
+        "@changesets/cli": "^2.26.2"
+    }
+}

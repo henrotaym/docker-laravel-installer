@@ -1,0 +1,6 @@
+Makefile
+pnpm-lock.yaml
+.changeset
+.github
+node_modules
+package.json
