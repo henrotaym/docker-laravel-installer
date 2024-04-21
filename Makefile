@@ -48,9 +48,10 @@ build-push-combine: guard-VERSION
 	make combine-image
 
 each-version: guard-VERSION guard-SCRIPT
-	PLATFORM=arm64 VERSION=$(call split-dot,${VERSION},1).$(call split-dot,${VERSION},2).$(call split-dot,${VERSION},3) make ${SCRIPT} && \
-	PLATFORM=arm64 VERSION=$(call split-dot,${VERSION},1).$(call split-dot,${VERSION},2) make ${SCRIPT} && \
-	PLATFORM=arm64 VERSION=$(call split-dot,${VERSION},1) make ${SCRIPT}
+	VERSION=$(call split-dot,${VERSION},1).$(call split-dot,${VERSION},2).$(call split-dot,${VERSION},3) make ${SCRIPT} && \
+	VERSION=$(call split-dot,${VERSION},1).$(call split-dot,${VERSION},2) make ${SCRIPT} && \
+	VERSION=$(call split-dot,${VERSION},1) make ${SCRIPT} && \
+	VERSION=latest make ${SCRIPT}
 
 deploy: guard-VERSION
 	SCRIPT=build-push-combine make each-version

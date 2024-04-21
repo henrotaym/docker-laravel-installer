@@ -5,8 +5,9 @@ COPY --from=composer:2.7.2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /tmp
 
-RUN composer create-project laravel/installer --prefer-dist
+RUN apk add --no-cache git && \
+    composer create-project laravel/installer --prefer-dist
 
 WORKDIR /opt/apps
 
-CMD [ "/tmp/installer/bin/laravel", "new" ]
+CMD [ "/tmp/installer/bin/laravel", "--git", "new" ]

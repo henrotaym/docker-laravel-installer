@@ -6,5 +6,6 @@ docker run --rm \
     --tty \
     --volume $PWD:/opt/apps/app \
     --workdir /opt/apps/app \
+    --user $(id -u):$(id -g) \
     henrotaym/laravel-installer:0.0.1
 ```
